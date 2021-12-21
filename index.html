@@ -1,31 +1,27 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ratio Calculator by ayoub</title>
 </head>
+
 <body>
-    
-    <div>
-        <div>
-            <input type="number" id="height" placeholder="height"/>
-        </div>
-        <div>
-            <input type="number" id="width" placeholder="width"/>
-        </div>
-        <div>
-            <input type="number" id="customNumber" placeholder="custom number"/>
-        </div>
 
-        <!-- convert to slider -->
-        <input type="range" min="-100" max="100" id="number" placeholder="number"/>
-        <span id="currentRange"></span>        
+    <table>
+        <tr>
+            <td><label for="height">Height: </label></td>
+            <td><input type="number" id="height" min="0" value="0"/></td>
+        </tr>
+        <tr>
+            <td><label for="width">Width: </label></td>
+            <td><input type="number" id="width" min="0" value="0"/></td>
+        </tr>
+    </table>
 
-        <h1 id="result"></h1>
-        <button type="button" id="calc">Calc</button>
-    </div> 
-<script src="index.js"></script>
+    <script src="index.js"></script>
 </body>
+
 </html>
