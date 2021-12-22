@@ -1,27 +1,26 @@
-const height = document.getElementById("height");
 const width = document.getElementById("width");
+const height = document.getElementById("height");
+const newwidth = document.getElementById("newwidth");
+const newheight = document.getElementById("newheight");
 
-let beforeChangeHeight = 0;
-let beforeChangeWidth = 0;
+let originalWidth, originalHeight, newWidth, newHeight, ratio;
 
-height.addEventListener("change", () => {
+newwidth.oninput = handleWidthChange;
+newheight.onchange = handleHeightChange;
 
-    if(Number(height.value) !== beforeChangeHeight){
-        const res = calcRatio(Number(height.value), Number(width.value), (Number(height.value) - beforeChangeHeight));
-        beforeChangeHeight = Number(height.value);
-        
-        height.value = res[0];
-        width.value = res[1];
-    }
+function setValues(){
+    originalWidth = Number(width.value);
+    originalHeight = Number(height.value);
+    newWidth = Number(newwidth.value);
+    newHeight = Number(newheight.value);
+    ratio = (originalWidth / originalHeight);
+}
 
-})
-
-
-function calcRatio(h, w, num){
-    const ratio = (h / w);
-
-    h = h + (ratio * num);
-    w = w + (ratio * num); 
-    
-    return [h, w];
+function handleWidthChange (){
+    setValues();
+    newheight.value = Math.round(newWidth / ratio); 
+}
+function handleHeightChange(){
+    setValues();
+    newwidth.value = Math.round(newHeight * ratio);
 }
